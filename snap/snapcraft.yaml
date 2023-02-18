@@ -15,7 +15,7 @@ compression: lzo
 
 apps:
   yt-dlp:
-    command: usr/local/bin/yt-dlp
+    command: bin/yt-dlp
     environment:
       LC_ALL: C.UTF-8
       LANG: C.UTF-8
