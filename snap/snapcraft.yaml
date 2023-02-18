@@ -29,10 +29,11 @@ parts:
     source: https://github.com/yt-dlp/yt-dlp
     source-type: git
     plugin: python
+    
+    build-snaps:
+      - ffmpeg
           
     build-packages:
-      - ffmpeg
-      - ffprobe
       - python3-certifi
       - brotli
       - python3-websockets
@@ -44,8 +45,6 @@ parts:
       - python3-secretstorage
       
     stage-packages:
-      - ffmpeg
-      - ffprobe
       - python3-certifi
       - brotli
       - python3-websockets
