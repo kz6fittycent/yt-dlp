@@ -10,7 +10,7 @@ license: Unlicense
 
 base: core20
 grade: stable
-confinement: strict
+confinement: classic
 compression: lzo
 
 apps:
@@ -19,10 +19,6 @@ apps:
     environment:
       LC_ALL: C.UTF-8
       LANG: C.UTF-8
-    plugs:
-      - network
-      - home
-      - removable-media
 
 parts:
   yt-dlp:
