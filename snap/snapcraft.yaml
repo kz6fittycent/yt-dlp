@@ -1,0 +1,61 @@
+name: yt-dlp
+adopt-info: yt-dlp
+summary: A youtube-dl fork with additional features
+description: |
+  yt-dlp is a youtube-dl fork based on the now inactive youtube-dlc. 
+  The main focus of this project is adding new features and patches 
+  while also keeping up to date with the original project
+  
+license: Unlicense
+
+base: core20
+grade: stable
+confinement: strict
+compression: lzo
+
+apps:
+  yt-dlp:
+    command: usr/local/bin/yt-dlp
+    environment:
+      LC_ALL: C.UTF-8
+      LANG: C.UTF-8
+    plugs:
+      - network
+      - home
+      - removable-media
+
+parts:
+  yt-dlp:
+    source: https://github.com/yt-dlp/yt-dlp
+    source-type: git
+    plugin: python
+          
+    build-packages:
+      - ffmpeg
+      - ffprobe
+      - python3-certifi
+      - brotli
+      - python3-websockets
+      - python3-mutagen
+      - atomicparsley
+      - python3-pyxattr
+      - python3-pip
+      - phantomjs
+      - python3-secretstorage
+      
+    stage-packages:
+      - ffmpeg
+      - ffprobe
+      - python3-certifi
+      - brotli
+      - python3-websockets
+      - python3-mutagen
+      - atomicparsley
+      - python3-pyxattr
+      - python3-pip
+      - phantomjs
+      - python3-secretstorage
+      
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version "$(git describe --tags | sed 's/^v//' | cut -d "-" -f1)"
