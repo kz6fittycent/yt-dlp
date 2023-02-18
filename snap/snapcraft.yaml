@@ -32,6 +32,8 @@ parts:
     
     build-snaps:
       - ffmpeg
+    stage-snaps:
+      - ffmpeg      
           
     build-packages:
       - python3-certifi
